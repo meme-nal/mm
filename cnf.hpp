@@ -11,6 +11,9 @@ namespace mm {
 
   namespace net {
     namespace acts {}
+    namespace loss {}
+    namespace optim {}
+    namespace winit {}
   } // namespace net
 } // namespace net
 
