@@ -2,6 +2,7 @@
 #define CNF_HPP
 
 #include <vector>
+#include <cmath>
 
 namespace mm {
   using Vector = std::vector<float>;
