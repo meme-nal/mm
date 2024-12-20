@@ -1,10 +1,12 @@
 #ifndef CNF_HPP
 #define CNF_HPP
 
+#include <vector>
+
 namespace mm {
-  using Vector = float*;
-  using Matrix = float**;
-  using Tensor = float***;
+  using Vector = std::vector<float>;
+  using Matrix = std::vector<std::vector<float>>;
+  using Tensor = std::vector<std::vector<std::vector<float>>>;
 
   namespace net {
     namespace acts {}

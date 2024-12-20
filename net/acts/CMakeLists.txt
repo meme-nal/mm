@@ -6,6 +6,7 @@ set(SOURCES
   acts.cpp)
 
 set(HEADERS
+  ../../cnf.hpp
   acts.hpp)
 
 add_library(acts SHARED ${SOURCES} ${HEADERS})
