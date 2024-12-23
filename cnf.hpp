@@ -1,6 +1,7 @@
 #ifndef CNF_HPP
 #define CNF_HPP
 
+#include <iostream>
 #include <vector>
 #include <cmath>
 
