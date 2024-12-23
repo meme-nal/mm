@@ -73,5 +73,25 @@ namespace mm {
     return res;
   }
 
-  
+  std::ostream& operator << (std::ostream& out, const Matrix& m) {
+    out << '[ ';
+    for (size_t i {0}; i < m.size(); ++i) {
+      out << '[ ';
+      for (size_t j {0}; j < m[0].size(); ++j) {
+        out << m[i][j] << ' ';
+      }
+      out << ']';
+    }
+    out << ' ]';
+    return out;
+  }
+
+  std::ostream& operator << (std::ostream& out, const Vector& v) {
+    out << '[ ';
+    for (size_t i {0}; i < v.size(); ++i) {
+      out << v[i] << ' ';
+    }
+    out << ']';
+    return out;
+  }
 } // namespace mm

@@ -6,6 +6,7 @@
 #include <cmath>
 
 namespace mm {
+  using Scalar = float;
   using Vector = std::vector<float>;
   using Matrix = std::vector<std::vector<float>>;
   using Tensor = std::vector<std::vector<std::vector<float>>>;
