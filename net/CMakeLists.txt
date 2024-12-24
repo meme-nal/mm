@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 project(net)
 
 add_subdirectory(acts)
+add_subdirectory(loss)
 
 set(SOURCES
   net.cpp)
@@ -17,4 +18,5 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
                      CXX_STANDARD_REQUIRED ON)
 
 target_link_libraries (${PROJECT_NAME} PUBLIC 
-                       acts)
+                       acts
+                       loss)
