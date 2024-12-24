@@ -11,6 +11,10 @@ namespace mm {
   using Matrix = std::vector<std::vector<float>>;
   using Tensor = std::vector<std::vector<std::vector<float>>>;
 
+  enum LAYER_TYPE {
+    DENSE
+  };
+
   namespace net {
     namespace acts {}
     namespace loss {}
