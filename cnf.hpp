@@ -6,6 +6,7 @@ using json = nlohmann::json;
 
 #include <iostream>
 #include <vector>
+#include <memory>
 #include <cmath>
 
 namespace mm {

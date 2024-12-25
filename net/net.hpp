@@ -11,7 +11,7 @@ namespace mm {
   namespace net {
     class net {
     private:
-      std::vector<ILayer*> _layers;
+      std::vector<std::shared_ptr<ILayer>> _layers;
       std::string _loss;
       Scalar _lr;
       size_t _miniBatchSize;
@@ -19,18 +19,13 @@ namespace mm {
 
     public:
       net(const json& net_cnf);
-      ~net() {
-        for (const auto* layer : this->_layers) {
-          delete layer;
-        }
-      }
 
     public:
       Matrix forward(Matrix);
       void backward();
     };
 
-    ILayer* makeLayerFactory(const json& arch_node, const std::string& layer_name);
+    std::shared_ptr<ILayer> makeLayerFactory(const json& arch_node, const std::string& layer_name);
   } // net
 } // mm
 

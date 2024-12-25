@@ -2,10 +2,10 @@
 
 namespace mm {
   namespace net {
-    ILayer* makeLayerFactory(const json& arch_node, const std::string& layer_name) {
+    std::shared_ptr<ILayer> makeLayerFactory(const json& arch_node, const std::string& layer_name) {
       const std::string type = arch_node[layer_name]["type"].get<std::string>();
       if (type == "Dense") {
-        return new Dense(arch_node[layer_name]);
+        return std::make_shared<Dense>(arch_node[layer_name]);
       } else {
         throw std::runtime_error("Incorrect type of a layer");
       }
