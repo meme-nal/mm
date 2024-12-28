@@ -10,14 +10,8 @@ using json = nlohmann::json;
 #include <cmath>
 
 namespace mm {
-  using Scalar = float;
-  using Vector = std::vector<float>;
   using Matrix = std::vector<std::vector<float>>;
-  using Tensor = std::vector<std::vector<std::vector<float>>>;
-
-  enum LAYER_TYPE {
-    DENSE
-  };
+  using Tensor = std::vector<Matrix>;
 
   namespace net {
     namespace acts {}

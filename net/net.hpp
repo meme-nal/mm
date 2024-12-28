@@ -13,7 +13,7 @@ namespace mm {
     private:
       std::vector<std::shared_ptr<ILayer>> _layers;
       std::string _loss;
-      Scalar _lr;
+      float _lr;
       size_t _miniBatchSize;
       std::string _optimizer;
 

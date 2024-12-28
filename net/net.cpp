@@ -14,7 +14,7 @@ namespace mm {
     net::net(const json& net_cnf) {
       const size_t layersNum {net_cnf["net"]["arch"]["to_use"].size()};
 
-      _lr = net_cnf["net"]["optim"]["lr"].get<double>();
+      _lr = net_cnf["net"]["optim"]["lr"].get<float>();
       _loss = net_cnf["net"]["optim"]["loss"].get<std::string>();
       _optimizer = net_cnf["net"]["optim"]["optimizer"].get<std::string>();
       _miniBatchSize = net_cnf["net"]["optim"]["miniBatchSize"].get<size_t>();

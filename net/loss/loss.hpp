@@ -9,14 +9,14 @@ namespace mm {
       /*******************
       // MAE function
       *******************/
-      Scalar MAE(Vector pr, Vector gt);
-      Scalar MAE(Matrix pr, Matrix gt);
+      float MAE(const Matrix& pr, const Matrix& gt);
+      float MAE(const Tensor& pr, const Tensor& gt);
 
       /*******************
       // MSE function
       *******************/
-      Scalar MSE(Vector pr, Vector gt);
-      Scalar MSE(Matrix pr, Matrix gt);
+      float MSE(const Matrix& pr, const Matrix& gt);
+      float MSE(const Tensor& pr, const Tensor& gt);
 
     } // namespace loss
   } // namespace net

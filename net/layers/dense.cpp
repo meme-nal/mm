@@ -8,8 +8,8 @@ namespace mm {
       _act = layer_node["act"].get<std::string>();
       _winit = layer_node["winit"].get<std::string>();
 
-      _W = Matrix(layer_node["W_shape"][0].get<size_t>(), Vector(layer_node["W_shape"][1].get<size_t>()));
-      _B = Matrix(layer_node["B_shape"][0].get<size_t>(), Vector(layer_node["B_shape"][1].get<size_t>()));
+      _W = Matrix(layer_node["W_shape"][0].get<size_t>(), std::vector<float>(layer_node["W_shape"][1].get<size_t>()));
+      _B = Matrix(layer_node["B_shape"][0].get<size_t>(), std::vector<float>(layer_node["B_shape"][1].get<size_t>()));
 
       winit(_winit);
     }
@@ -18,12 +18,12 @@ namespace mm {
       if (type == "one") {
         for (size_t i {0}; i < _W.size(); ++i) {
           for (size_t j {0}; j < _W[0].size(); ++j) {
-            _W[i][j] = 1.0;
+            _W[i][j] = 1.f;
           }
         }
         for (size_t i {0}; i < _B.size(); ++i) {
           for (size_t j {0}; j < _B[0].size(); ++j) {
-            _B[i][j] = 1.0;
+            _B[i][j] = 1.f;
           }
         }
       } else if (type == "zero") {

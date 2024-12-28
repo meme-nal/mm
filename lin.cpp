@@ -1,6 +1,7 @@
 #include "lin.hpp"
 
 namespace mm {
+
   Matrix add(const Matrix& A, const Matrix& B) {
     // check if matrices are the same size
     if (A.size() != B.size() && A[0].size() != B[0].size()) {
@@ -17,6 +18,7 @@ namespace mm {
 
     return res;
   }
+
 
   Matrix sub(const Matrix& A, const Matrix& B) {
     // check if matrices are the same size
@@ -35,6 +37,7 @@ namespace mm {
     return res;
   }
 
+
   Matrix transpose(const Matrix& A) {
     size_t newRows {A[0].size()};
     size_t newCols {A.size()};
@@ -49,6 +52,7 @@ namespace mm {
 
     return res;
   }
+
 
   Matrix mul(const Matrix& A, const Matrix& B) {
     // check if matrices are proper size
@@ -73,6 +77,50 @@ namespace mm {
     return res;
   }
 
+  Tensor add(const Tensor& A, const Tensor& B) {
+    // check if tensors are the same size
+    if (    A.size() != B.size() &&
+         A[0].size() != B[0].size() &&
+      A[0][0].size() != B[0][0].size()) {
+      throw std::runtime_error("Tensors are not the same size");
+    }
+
+    Tensor res(A.size(), Matrix(A[0].size(), std::vector<float>(A[0][0].size())));
+
+    for (size_t i {0}; i < res.size(); ++i) {
+      for (size_t j {0}; j < res[0].size(); ++j) {
+        for (size_t k {0}; k < res[0][0].size(); ++k) {
+          res[i][j][k] = A[i][j][k] + B[i][j][k];
+        }
+      }
+    }
+
+    return res;
+  }
+
+
+  Tensor sub(const Tensor& A, const Tensor& B) {
+    // check if tensors are the same size
+    if (    A.size() != B.size() &&
+         A[0].size() != B[0].size() &&
+      A[0][0].size() != B[0][0].size()) {
+      throw std::runtime_error("Tensors are not the same size");
+    }
+
+    Tensor res(A.size(), Matrix(A[0].size(), std::vector<float>(A[0][0].size())));
+
+    for (size_t i {0}; i < res.size(); ++i) {
+      for (size_t j {0}; j < res[0].size(); ++j) {
+        for (size_t k {0}; k < res[0][0].size(); ++k) {
+          res[i][j][k] = A[i][j][k] - B[i][j][k];
+        }
+      }
+    }
+
+    return res;
+  }
+
+
   std::ostream& operator << (std::ostream& out, const Matrix& m) {
     out << "[ ";
     for (size_t i {0}; i < m.size(); ++i) {
@@ -86,12 +134,4 @@ namespace mm {
     return out;
   }
 
-  std::ostream& operator << (std::ostream& out, const Vector& v) {
-    out << "[ ";
-    for (size_t i {0}; i < v.size(); ++i) {
-      out << v[i] << ' ';
-    }
-    out << ']';
-    return out;
-  }
 } // namespace mm
